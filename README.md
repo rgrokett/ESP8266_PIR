@@ -13,5 +13,6 @@ Note that IFTTT requires HTTPS SSL encryption. Thus this project includes code f
 
 See ESP8266_PIR.pdf for details
 
-
+### See Also: Deep Sleep Version
+There is another version of this project to use ESP8266 Deep Sleep mode to significantly save battery power. BUT requires extra hardware, so more complex.  See https://github.com/rgrokett/ESP8266_PIRv2 
 
