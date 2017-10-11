@@ -58,47 +58,6 @@ bool FiveVoltBat = false; // Set to true if 5V bat automatically turns off.
 int loops = 0;        // power save "timer"
 int motionState;      // cache for current motion state value
 
-// INITIALIZE and Connect to WiFi
-void setup() {
-  Serial.begin(115200);
-  delay(10);
-
-  // prepare PIR input pin
-  pinMode(PIRpin, INPUT);
-  digitalWrite(PIRpin, HIGH);
-
-  // prepare onboard LED
-  pinMode(LED, OUTPUT);
-  digitalWrite(LED, HIGH);  
-  
-  // We start by connecting to a WiFi network
-
-  Serial.println();
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-  
-  WiFi.begin(ssid, password);
-  
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
-  Serial.println("");
-  Serial.println("WiFi connected");  
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
-
-  // Blink onboard LED to signify its connected
-  blink();
-  blink();
-  blink();
-  blink(); 
-  
-  powerSave();  // Turn off Wifi
-}
-
 
 // SEND HTTPS GET TO IFTTT
 void sendEvent()
@@ -197,6 +156,48 @@ void powerCheck()
       loops = 0;
   }
   loops = loops + 1;
+}
+
+
+// INITIALIZE and Connect to WiFi
+void setup() {
+  Serial.begin(115200);
+  delay(10);
+
+  // prepare PIR input pin
+  pinMode(PIRpin, INPUT);
+  digitalWrite(PIRpin, HIGH);
+
+  // prepare onboard LED
+  pinMode(LED, OUTPUT);
+  digitalWrite(LED, HIGH);  
+  
+  // We start by connecting to a WiFi network
+
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");  
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  // Blink onboard LED to signify its connected
+  blink();
+  blink();
+  blink();
+  blink(); 
+  
+  powerSave();  // Turn off Wifi
 }
 
 
