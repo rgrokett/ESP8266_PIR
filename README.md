@@ -1,4 +1,5 @@
 # ESP8266_PIR
+
 ESP8266 Motion Detector to IFTTT
 
 We just installed a Cat Door in our garage and I wanted to see how many times per day (actually night) our cat went in and out the door. We could tell the cat was using the door as we would find it outside sometimes and inside sometimes. 
